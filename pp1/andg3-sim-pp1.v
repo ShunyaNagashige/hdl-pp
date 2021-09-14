@@ -2,7 +2,7 @@
 module top;
 reg a, b, c;
 wire y;
-NOR_G3 NOR_G3(a, b, c, y);
+AND_G3 AND_G3(a, b, c, y);
 initial begin
 a = 0; b = 0; c = 0;
 #1 a = 0; b = 0; c=1;
