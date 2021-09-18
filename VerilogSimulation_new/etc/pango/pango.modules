@@ -1,0 +1,24 @@
+# Pango Modules file
+# Automatically generated file, do not edit
+#
+# ModulesPath = C:\Users\asahi\Desktop\Verilog2013EA\VerilogSimulation_new\lib\pango\1.4.0\modules
+#
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-arabic-fc.dll" ArabicScriptEngineFc PangoEngineShape PangoRenderFc arabic:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-basic-fc.dll" BasicScriptEngineFc PangoEngineShape PangoRenderFc armenian:* bopomofo:* cherokee:* coptic:* cyrillic:* deseret:* ethiopic:* georgian:* gothic:* greek:* han:* hiragana:* katakana:* latin:* ogham:* old-italic:* runic:* canadian-aboriginal:* yi:* braille:* cypriot:* limbu:* osmanya:* shavian:* linear-b:* ugaritic:* common:
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-basic-win32.dll" BasicScriptEngineWin32 PangoEngineShape PangoRenderWin32 common:
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-hangul-fc.dll" HangulScriptEngineFc PangoEngineShape PangoRenderFc hangul:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-hebrew-fc.dll" HebrewScriptEngineFc PangoEngineShape PangoRenderFc hebrew:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" devaScriptEngineFc PangoEngineShape PangoRenderFc devanagari:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" bengScriptEngineFc PangoEngineShape PangoRenderFc bengali:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" guruScriptEngineFc PangoEngineShape PangoRenderFc gurmukhi:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" gujrScriptEngineFc PangoEngineShape PangoRenderFc gujarati:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" oryaScriptEngineFc PangoEngineShape PangoRenderFc oriya:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" tamlScriptEngineFc PangoEngineShape PangoRenderFc tamil:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" teluScriptEngineFc PangoEngineShape PangoRenderFc telugu:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" kndaScriptEngineFc PangoEngineShape PangoRenderFc kannada:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" mlymScriptEngineFc PangoEngineShape PangoRenderFc malayalam:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" sinhScriptEngineFc PangoEngineShape PangoRenderFc sinhala:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-khmer-fc.dll" KhmerScriptEngineFc PangoEngineShape PangoRenderFc khmer:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-syriac-fc.dll" SyriacScriptEngineFc PangoEngineShape PangoRenderFc syriac:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-thai-fc.dll" ThaiScriptEngineFc PangoEngineShape PangoRenderFc thai:* lao:*
+"C:\\Users\\asahi\\Desktop\\Verilog2013EA\\VerilogSimulation_new\\lib\\pango\\1.4.0\\modules\\pango-tibetan-fc.dll" TibetanScriptEngineFc PangoEngineShape PangoRenderFc tibetan:*

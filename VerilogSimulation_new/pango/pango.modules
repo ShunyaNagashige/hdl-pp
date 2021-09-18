@@ -1,0 +1,24 @@
+# Pango Modules file
+# Automatically generated file, do not edit
+#
+# ModulesPath = c:\gtkw\lib\pango\1.4.0\modules
+#
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-arabic-fc.dll" ArabicScriptEngineFc PangoEngineShape PangoRenderFc arabic:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-basic-fc.dll" BasicScriptEngineFc PangoEngineShape PangoRenderFc armenian:* bopomofo:* cherokee:* coptic:* cyrillic:* deseret:* ethiopic:* georgian:* gothic:* greek:* han:* hiragana:* katakana:* latin:* ogham:* old-italic:* runic:* canadian-aboriginal:* yi:* braille:* cypriot:* limbu:* osmanya:* shavian:* linear-b:* ugaritic:* common:
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-basic-win32.dll" BasicScriptEngineWin32 PangoEngineShape PangoRenderWin32 common:
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-hangul-fc.dll" HangulScriptEngineFc PangoEngineShape PangoRenderFc hangul:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-hebrew-fc.dll" HebrewScriptEngineFc PangoEngineShape PangoRenderFc hebrew:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" devaScriptEngineFc PangoEngineShape PangoRenderFc devanagari:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" bengScriptEngineFc PangoEngineShape PangoRenderFc bengali:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" guruScriptEngineFc PangoEngineShape PangoRenderFc gurmukhi:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" gujrScriptEngineFc PangoEngineShape PangoRenderFc gujarati:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" oryaScriptEngineFc PangoEngineShape PangoRenderFc oriya:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" tamlScriptEngineFc PangoEngineShape PangoRenderFc tamil:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" teluScriptEngineFc PangoEngineShape PangoRenderFc telugu:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" kndaScriptEngineFc PangoEngineShape PangoRenderFc kannada:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" mlymScriptEngineFc PangoEngineShape PangoRenderFc malayalam:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-indic-fc.dll" sinhScriptEngineFc PangoEngineShape PangoRenderFc sinhala:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-khmer-fc.dll" KhmerScriptEngineFc PangoEngineShape PangoRenderFc khmer:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-syriac-fc.dll" SyriacScriptEngineFc PangoEngineShape PangoRenderFc syriac:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-thai-fc.dll" ThaiScriptEngineFc PangoEngineShape PangoRenderFc thai:* lao:*
+"c:\\gtkw\\lib\\pango\\1.4.0\\modules\\pango-tibetan-fc.dll" TibetanScriptEngineFc PangoEngineShape PangoRenderFc tibetan:*
