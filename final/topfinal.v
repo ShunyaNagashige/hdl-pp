@@ -21,18 +21,20 @@ always @(posedge CLOCK or posedge RESET) begin
     else if(OUT_M == 4'b0 && OUT_10S == 4'b0 && OUT_1S == 4'b0) begin
         // アラームを停止する
         if(BZ == 1'b1 && PSW[1] == 1'b1)
-            BZ == 1'b0;
+            BZ <= 1'b0;
             CAN_START <= 1'b1;
+            IS_COUNTING <= 1'b0;
         // カウント終了時
-        else if(BZ == 1'b0 && CAN_START == 1'b0)
-            BZ == 1'b1;
+        else if(CAN_START == 1'b0)
+            BZ <= ~BZ;
         // カウント開始時
         else if(BZ == 1'b0 && CAN_START == 1'b1 && PSW[0] == 1'b1)
             CAN_START <= 1'b0;
+            IS_COUNTING <= 1'b1;
     end
 end
 
-CLKDIV1000 CLKDIV1000(CLOCK, RESET, CAN_START, EN);
+CLKDIV1000 CLKDIV1000(CLOCK, RESET, IS_COUNTING, EN);
 
 CNT10 CNT10(CLOCK, RESET, EN, OUT_1S, BO1S_10S);
 CNT6 CNT6(CLOCK, RESET, BO1S_10S, OUT_10S, BO10S_M);

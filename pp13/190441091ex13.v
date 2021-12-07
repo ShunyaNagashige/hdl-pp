@@ -29,6 +29,7 @@ always @(LED) begin
         8'b01111010: SEG = "d";	// d
         8'b10011110: SEG = "E";	// E
         8'b10001110: SEG = "F";	// F
+        default:     SEG = "?";
     endcase
 end
 
