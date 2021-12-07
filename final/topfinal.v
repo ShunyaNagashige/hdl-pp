@@ -10,13 +10,14 @@ reg BZ;
 
 wire BO1S_10S, BO10S_M;
 wire [3:0] OUT_1S, OUT_10S, OUT_M;
-reg CAN_START;
+reg CAN_START, IS_COUNTING;
 
 // ボタンの押し下し，及び，終了状態の，判定を行う
 // PSW[0]をスタートボタン，PSW[1]をアラーム停止ボタンとする
 always @(posedge CLOCK or posedge RESET) begin
     if(RESET == 1'b1)
         CAN_START <= 1'b0;
+        IS_COUNTING <= 1'b0;
         BZ <= 1'b0;
     else if(OUT_M == 4'b0 && OUT_10S == 4'b0 && OUT_1S == 4'b0) begin
         // アラームを停止する
