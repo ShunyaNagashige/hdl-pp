@@ -1,4 +1,4 @@
-module DEC7SEG(HEX,LEDOUT);
+module DEC7SEG(HEX, LEDOUT);
 input [3:0] HEX;
 output [7:0] LEDOUT;
 
