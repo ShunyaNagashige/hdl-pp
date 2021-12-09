@@ -19,6 +19,13 @@ always begin
     #(STEP) CLOCK = ~CLOCK;
 end
 
+always begin
+    // アラームを止める
+    #(STEP * 12)    if (STR_B == "0" && STR_C == "0" && STR_D == "0") begin
+                        PSW[1] = 1'b1; 
+                    end    
+end
+
 // 押しボタンのシミュレーションを描く
 
 // カウントできるか？
@@ -27,9 +34,12 @@ end
 
 initial begin
     CLOCK = 1'b0; RESET = 1'b0; RSW = 4'd1;
-    PSW[0] = 1'b1;
+
     #(STEP) RESET = 1'b1;
     #(STEP) RESET = 1'b0;
+
+    #(STEP * 5) PSW[0] = 1'b1;
+    #(STEP) PSW[0] = 1'b0;
 end
 
 function [7:0] STR;
