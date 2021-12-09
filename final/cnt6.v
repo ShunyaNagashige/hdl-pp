@@ -1,10 +1,10 @@
 // Synchronous BCD counter with asynchronous reset
 module CNT6(CLOCK, RESET, EN, CNT, BO);
 input CLOCK, RESET, EN;
-output [2:0] CNT;
+output [3:0] CNT;
 output BO;
 
-reg [2:0] CNT;
+reg [3:0] CNT;
 
 always @(posedge CLOCK or posedge RESET) begin
 // TODO:?

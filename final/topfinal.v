@@ -1,10 +1,10 @@
 module TOPFINAL(CLOCK, RESET, PSW, RSW, SEG_A, SEG_B, SEG_C, SEG_D, LED, BZ);
 input CLOCK, RESET;
-input [3:0] PSW; // æŠ¼ã—ãƒœã‚¿ãƒ³ï¼ˆæœ€ä¸‹ä½ãƒ“ãƒƒãƒˆãŒå·¦å´ï¼Œæœ€ä¸Šä½ãƒ“ãƒƒãƒˆãŒå³å´ï¼‰
-input [3:0] RSW; // BCDãƒ­ãƒ¼ã‚¿ãƒªã‚¹ã‚¤ãƒƒãƒï¼ˆ0ï½ž9ã®BCDã‚³ãƒ¼ãƒ‰å€¤ãŒå¾—ã‚‰ã‚Œã‚‹ï¼‰
-output [7:0] SEG_A, SEG_B, SEG_C, SEG_D; // 7seg LEDï¼ˆSEG_AãŒå·¦å´ï¼ŒSEG_DãŒå³å´ æ¬¡ã‚‚ã‚¹ãƒ©ã‚¤ãƒ‰å‚ç…§ï¼‰
-output [7:0] LED; // è¿½åŠ ãƒãƒ¼ãƒ‰ï¼šLEDï¼ˆæœ€ä¸‹ä½ãƒ“ãƒƒãƒˆãŒå·¦å´ï¼Œæœ€ä¸Šä½ãƒ“ãƒƒãƒˆãŒå³å´ ï¼ 1:ç‚¹ç¯ï¼Œ0:æ¶ˆç¯ï¼‰
-output BZ; // è¿½åŠ ãƒãƒ¼ãƒ‰ï¼šã‚¹ãƒ”ãƒ¼ã‚«ï¼ˆ1:Onï¼Œ0:Offï¼‰
+input [3:0] PSW; // ‰Ÿ‚µƒ{ƒ^ƒ“iÅ‰ºˆÊƒrƒbƒg‚ª¶‘¤CÅãˆÊƒrƒbƒg‚ª‰E‘¤j
+input [3:0] RSW; // BCDƒ[ƒ^ƒŠƒXƒCƒbƒ`i0`9‚ÌBCDƒR[ƒh’l‚ª“¾‚ç‚ê‚éj
+output [7:0] SEG_A, SEG_B, SEG_C, SEG_D; // 7seg LEDiSEG_A‚ª¶‘¤CSEG_D‚ª‰E‘¤ ŽŸ‚àƒXƒ‰ƒCƒhŽQÆj
+output [7:0] LED; // ’Ç‰Áƒn[ƒhFLEDiÅ‰ºˆÊƒrƒbƒg‚ª¶‘¤CÅãˆÊƒrƒbƒg‚ª‰E‘¤ ^ 1:“_“”C0:Á“”j
+output BZ; // ’Ç‰Áƒn[ƒhFƒXƒs[ƒJi1:OnC0:Offj
 
 reg BZ;
 
@@ -12,26 +12,37 @@ wire BO1S_10S, BO10S_M;
 wire [3:0] OUT_1S, OUT_10S, OUT_M;
 reg CAN_START, IS_COUNTING;
 
-// ãƒœã‚¿ãƒ³ã®æŠ¼ã—ä¸‹ã—ï¼ŒåŠã³ï¼Œçµ‚äº†çŠ¶æ…‹ã®ï¼Œåˆ¤å®šã‚’è¡Œã†
-// PSW[0]ã‚’ã‚¹ã‚¿ãƒ¼ãƒˆãƒœã‚¿ãƒ³ï¼ŒPSW[1]ã‚’ã‚¢ãƒ©ãƒ¼ãƒ åœæ­¢ãƒœã‚¿ãƒ³ã¨ã™ã‚‹
+// ƒ{ƒ^ƒ“‚Ì‰Ÿ‚µ‰º‚µC‹y‚ÑCI—¹ó‘Ô‚ÌC”»’è‚ðs‚¤
+// PSW[0]‚ðƒXƒ^[ƒgƒ{ƒ^ƒ“CPSW[1]‚ðƒAƒ‰[ƒ€’âŽ~ƒ{ƒ^ƒ“‚Æ‚·‚é
 always @(posedge CLOCK or posedge RESET) begin
-    if(RESET == 1'b1)
+    if(RESET == 1'b1) begin
         CAN_START <= 1'b0;
         IS_COUNTING <= 1'b0;
         BZ <= 1'b0;
-    else if(OUT_M == 4'b0 && OUT_10S == 4'b0 && OUT_1S == 4'b0) begin
-        // ã‚¢ãƒ©ãƒ¼ãƒ ã‚’åœæ­¢ã™ã‚‹
-        if(BZ == 1'b1 && PSW[1] == 1'b1)
-            BZ <= 1'b0;
-            CAN_START <= 1'b1;
-            IS_COUNTING <= 1'b0;
-        // ã‚«ã‚¦ãƒ³ãƒˆçµ‚äº†æ™‚
-        else if(CAN_START == 1'b0)
-            BZ <= ~BZ;
-        // ã‚«ã‚¦ãƒ³ãƒˆé–‹å§‹æ™‚
-        else if(BZ == 1'b0 && CAN_START == 1'b1 && PSW[0] == 1'b1)
+    end
+    else if(OUT_M == RSW && OUT_10S == 4'd0 && OUT_1S == 4'd0) begin
+        // ƒJƒEƒ“ƒgŠJŽnŽž
+        if(PSW[0] == 1'b1) begin
             CAN_START <= 1'b0;
             IS_COUNTING <= 1'b1;
+        end
+    end
+    else if(OUT_M == 4'd0 && OUT_10S == 4'd0 && OUT_1S == 4'd0) begin
+        // ƒAƒ‰[ƒ€‚ð’âŽ~‚·‚é
+        if(BZ == 1'b1 && PSW[1] == 1'b1) begin
+            BZ <= 1'b0;
+            CAN_START <= 1'b1;
+        end
+        // ƒJƒEƒ“ƒgI—¹Žž
+        else if(CAN_START == 1'b0) begin
+            BZ <= ~BZ;
+            IS_COUNTING <= 1'b0;
+        end
+        // ƒJƒEƒ“ƒgŠJŽnŽž
+        else if(BZ == 1'b0 && CAN_START == 1'b1 && PSW[0] == 1'b1) begin
+            CAN_START <= 1'b0;
+            IS_COUNTING <= 1'b1;
+        end
     end
 end
 
@@ -41,8 +52,8 @@ CNT10 CNT10(CLOCK, RESET, EN, OUT_1S, BO1S_10S);
 CNT6 CNT6(CLOCK, RESET, BO1S_10S, OUT_10S, BO10S_M);
 CNTRSW CNTRSW(CLOCK, RESET, BO10S_M, RSW, OUT_M);
 
-DEC7SEG DEC7SEG_1S(OUT_1S, SEG_B);
+DEC7SEG DEC7SEG_1S(OUT_1S, SEG_D);
 DEC7SEG DEC7SEG_10S(OUT_10S, SEG_C);
-DEC7SEG DEC7SEG_M(OUT_M, SEG_D);
+DEC7SEG DEC7SEG_M(OUT_M, SEG_B);
 
 endmodule
