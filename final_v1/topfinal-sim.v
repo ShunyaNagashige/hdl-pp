@@ -3,11 +3,11 @@
 module TOPFINAL_TEST;
 
 reg CLOCK, RESET;
-reg [3:0] PSW; // ‰Ÿ‚µƒ{ƒ^ƒ“
-reg [3:0] RSW; // BCDƒ[ƒ^ƒŠƒXƒCƒbƒ`
-wire [7:0] SEG_A, SEG_B, SEG_C, SEG_D; // 7seg LEDiSEG_A‚ª¶‘¤CSEG_D‚ª‰E‘¤ ŽŸ‚àƒXƒ‰ƒCƒhŽQÆj
-wire [7:0] LED; // ’Ç‰Áƒn[ƒhFLEDiÅ‰ºˆÊƒrƒbƒg‚ª¶‘¤CÅãˆÊƒrƒbƒg‚ª‰E‘¤ ^ 1:“_“”C0:Á“”j
-wire BZ; // ’Ç‰Áƒn[ƒhFƒXƒs[ƒJi1:OnC0:Offj
+reg [3:0] PSW; // æŠ¼ã—ãƒœã‚¿ãƒ³
+reg [3:0] RSW; // BCDãƒ­ãƒ¼ã‚¿ãƒªã‚¹ã‚¤ãƒƒãƒ
+wire [7:0] SEG_A, SEG_B, SEG_C, SEG_D; // 7seg LEDï¼ˆSEG_AãŒå·¦å´ï¼ŒSEG_DãŒå³å´ æ¬¡ã‚‚ã‚¹ãƒ©ã‚¤ãƒ‰å‚ç…§ï¼‰
+wire [7:0] LED; // è¿½åŠ ãƒãƒ¼ãƒ‰ï¼šLEDï¼ˆæœ€ä¸‹ä½ãƒ“ãƒƒãƒˆãŒå·¦å´ï¼Œæœ€ä¸Šä½ãƒ“ãƒƒãƒˆãŒå³å´ ï¼ 1:ç‚¹ç¯ï¼Œ0:æ¶ˆç¯ï¼‰
+wire BZ; // è¿½åŠ ãƒãƒ¼ãƒ‰ï¼šã‚¹ãƒ”ãƒ¼ã‚«ï¼ˆ1:Onï¼Œ0:Offï¼‰
 
 wire [7:0] STR_B, STR_C, STR_D;
 
@@ -19,45 +19,33 @@ always begin
     #(STEP) CLOCK = ~CLOCK;
 end
 
-// ‰Ÿ‚µƒ{ƒ^ƒ“‚ÌƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ð•`‚­
-
 always begin
-    #(STEP * 3);
-    if(STR_B == "0" && STR_C == "0" && STR_D == "0") begin
-        if(BZ == 1'b1) begin
-            // ƒAƒ‰[ƒ€‚ð’âŽ~‚·‚é
-            #(STEP * 2 * 1000 * 5) PSW[1] = 1'b1;
-            // ƒXƒ^[ƒgƒ{ƒ^ƒ“‚ð‰Ÿ‚·‚Ì‚ð‚â‚ß‚é
-            #(STEP * 5) PSW[1] = 1'b0;
+    #(STEP * 12)    if (STR_B == "0" && STR_C == "0" && STR_D == "0") begin
+                        // ã‚¢ãƒ©ãƒ¼ãƒ ã‚’æ­¢ã‚ã‚‹
+                        #(STEP * 5) PSW[1] = 1'b1; 
+                        #(STEP * 5) PSW[1] = 1'b0;
 
-            // ƒ[ƒ^ƒŠƒXƒCƒbƒ`‚ð2‚ÉƒZƒbƒg
-            #(STEP * 2 * 1000 * 2) RSW = 4'd2;
+                        RSW = 4'd2;
 
-            // ƒXƒ^[ƒgƒ{ƒ^ƒ“‚ð‰Ÿ‚·
-            #(STEP * 2 * 1000 * 5) PSW[0] = 1'b1;
-
-            // 3•b’x‰„‚³‚¹‚é(ƒJƒEƒ“ƒg‚ðŠJŽn‚³‚¹‚é)
-            #(STEP * 2 * 1000 * 5);
-
-            // ƒXƒ^[ƒgƒ{ƒ^ƒ“‚ð‰Ÿ‚·‚Ì‚ð‚â‚ß‚é
-            #(STEP * 5) PSW[0] = 1'b0;
-        end
-    end
+                        #(STEP * 5) PSW[0] = 1'b1;
+                        #(STEP) PSW[0] = 1'b0;
+                    end
 end
 
-// ƒJƒEƒ“ƒg‚Å‚«‚é‚©H
-// ƒAƒ‰[ƒ€‚ª‚Â‚­‚©H
-// ƒAƒ‰[ƒ€’âŽ~‚Å‚«‚é‚©H
+// æŠ¼ã—ãƒœã‚¿ãƒ³ã®ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æã
+
+// ã‚«ã‚¦ãƒ³ãƒˆã§ãã‚‹ã‹ï¼Ÿ
+// ã‚¢ãƒ©ãƒ¼ãƒ ãŒã¤ãã‹ï¼Ÿ
+// ã‚¢ãƒ©ãƒ¼ãƒ åœæ­¢ã§ãã‚‹ã‹ï¼Ÿ
 
 initial begin
     CLOCK = 1'b0; RESET = 1'b0; RSW = 4'd1;
-    PSW[0] = 1'b0; PSW[1] = 1'b0;
+
     #(STEP) RESET = 1'b1;
     #(STEP) RESET = 1'b0;
-    // ƒXƒ^[ƒgƒ{ƒ^ƒ“‚ð‰Ÿ‚·
-    #(STEP * 2 * 1000 * 2) PSW[0] = 1'b1;
-    // ƒXƒ^[ƒgƒ{ƒ^ƒ“‚ð‰Ÿ‚·‚Ì‚ð‚â‚ß‚é
-    #(STEP * 5) PSW[0] = 1'b0;
+
+    #(STEP * 5) PSW[0] = 1'b1;
+    #(STEP) PSW[0] = 1'b0;
 end
 
 function [7:0] STR;

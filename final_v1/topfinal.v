@@ -29,7 +29,7 @@ always @(posedge CLOCK or posedge RESET) begin
     end
     else if(OUT_M == 4'd0 && OUT_10S == 4'd0 && OUT_1S == 4'd0) begin
         // ÉAÉâÅ[ÉÄÇí‚é~Ç∑ÇÈ
-        if(IS_COUNTING == 1'b0 && PSW[1] == 1'b1) begin
+        if(BZ == 1'b1 && PSW[1] == 1'b1) begin
             BZ <= 1'b0;
             CAN_START <= 1'b1;
         end
